@@ -69,10 +69,11 @@ export async function PATCH(
 
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: { id: string } }
 ): Promise<NextResponse> {
     try {
-        const { id } = await params;
+        const { id } = await context.params;
+
         await connectDB();
 
         const session = await getServerSession(authOptions);
