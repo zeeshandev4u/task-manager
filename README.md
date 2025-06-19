@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📝 Task Manager
 
-## Getting Started
+A full-stack, feature-rich task management application built with Next.js 15, MongoDB, and React 19. Designed with modern development practices and a minimal, elegant UI, this app provides users with seamless authentication, task status tracking, and real-time feedback.
 
-First, run the development server:
 
-```bash
+🚀 Features
+
+✅ Next.js 15 with Turbopack for blazing-fast dev experience
+
+🔐 Authentication using NextAuth and MongoDB adapter
+
+🧠 Form validation with React Hook Form and Zod
+
+🔒 Secure password hashing with Bcrypt
+
+📅 Date/time handling using Day.js
+
+🎨 Clean UI powered by Tailwind CSS & Framer Motion
+
+🪝 State management with Zustand
+
+🔔 Toast notifications with Sonner
+
+🧪 Linting and code standards with ESLint and TypeScript
+
+
+🛠️ Stack
+
+| Tool / Library          | Purpose                             |
+| ----------------------- | ----------------------------------- |
+| **Next.js**             | Full-stack React framework          |
+| **React 19**            | Component-based frontend UI         |
+| **MongoDB & Mongoose**  | Backend database and ODM            |
+| **NextAuth**            | User authentication and sessions    |
+| **Zod**                 | Schema-based form validation        |
+| **React Hook Form**     | Easy form handling                  |
+| **Tailwind CSS**        | Utility-first styling               |
+| **Framer Motion**       | Smooth animations and transitions   |
+| **Zustand**             | Lightweight global state management |
+| **Day.js**              | Fast and simple date utilities      |
+| **Axios**               | HTTP client for API requests        |
+| **ESLint + Typescript** | Static typing and code quality      |
+
+
+📦 Getting Started
+
+
+1. Clone the Repository
+
+git clone https://github.com/zeeshandev4u/task-manager.git
+cd task-manager
+
+
+2. Install Dependencies
+
+npm install
+
+
+3. Set Up Environment Variables
+
+Create a .env.local file in the root directory and add:
+
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_auth_secret
+NEXTAUTH_URL=http://localhost:3000
+
+
+4. Run the Development Server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view the app.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🧩 Folder Structure (Simplified)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/components       → Reusable UI components  
+/pages            → Next.js route-based pages  
+/lib              → Helpers, DB config, utils  
+/styles           → Tailwind and global styles 
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+📺 Demo & Live Preview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔗 Live URL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🎬 Video Demo
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🤝 Contribution
+Feel free to fork this repo, open issues, or submit pull requests. Any feedback is appreciated!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+📄 License
+This project is licensed under the MIT License.
+

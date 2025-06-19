@@ -8,6 +8,7 @@ import {
     handleApiError, handleCreated, handleDuplicateKeyError,
     handleSuccess, handleUnauthorized
 } from "@/lib/error-handlers";
+import { DuplicateKeyError } from "@/types/task.types";
 
 const TaskZodSchema = z.object({
     title: z.string().min(3, "Title is required").max(30, "Title cannot exceed 30 characters"),
@@ -74,7 +75,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         return handleCreated({ data: task, message: "Task created successfully", });
 
     } catch (err) {
-        const duplicate = handleDuplicateKeyError(err);
+        const duplicate = handleDuplicateKeyError(err as DuplicateKeyError);
         if (duplicate) return duplicate;
 
         return handleApiError(err, "Failed to create task");
