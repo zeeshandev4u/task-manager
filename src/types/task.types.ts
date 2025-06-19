@@ -11,6 +11,12 @@ export interface FetchTask {
     __v: number;
 }
 
+export type DuplicateKeyError = {
+    code: number;
+    keyPattern?: Record<string, unknown>;
+    keyValue?: Record<string, unknown>;
+};
+
 export interface ClientTask {
     _id: string;
     title: string;

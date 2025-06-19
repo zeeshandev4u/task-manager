@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
+import { Error as MongooseError } from "mongoose";
+import { DuplicateKeyError } from "@/types/task.types";
 
-export function handleSuccess(
-    data,
-    message = "Success"
+export function handleSuccess<T>(
+    data: T, message = "Success"
 ): NextResponse {
+
     return NextResponse.json(
         {
             success: true,
@@ -14,8 +16,8 @@ export function handleSuccess(
     );
 }
 
-export function handleCreated(
-    data,
+export function handleCreated<T>(
+    data: T,
     message = "Resource created successfully"
 ): NextResponse {
     return NextResponse.json(
@@ -29,8 +31,7 @@ export function handleCreated(
 }
 
 export function handleApiError(error: unknown, message = "Internal server error") {
-
-    if (error instanceof Error && error.name === "ValidationError") {
+    if (error instanceof MongooseError.ValidationError) {
         return NextResponse.json(
             {
                 success: false,
@@ -50,7 +51,7 @@ export function handleApiError(error: unknown, message = "Internal server error"
     );
 }
 
-export function handleDuplicateKeyError(error): NextResponse | null {
+export function handleDuplicateKeyError(error: DuplicateKeyError): NextResponse | null {
     if (error?.code === 11000) {
         const duplicatedField = Object.keys(error.keyPattern || error.keyValue || {})[0] || "field";
         const value = error.keyValue?.[duplicatedField];

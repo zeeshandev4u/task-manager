@@ -14,18 +14,12 @@ interface PatchTaskRequestBody {
     [key: string]: string | boolean | 'low' | 'medium' | 'high' | undefined;
 }
 
-interface Context {
-    params: {
-        id: string;
-    };
-}
-
-export async function PATCH(
-    request: NextRequest,
-    { params }: { params: { id: string } }
-) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function PATCH(request: NextRequest, context: any) {
     try {
-        const { id } = await params;
+
+        const { id } = await (context as { params: { id: string } }).params;
+
         await connectDB();
 
         const session = await getServerSession(authOptions);
@@ -73,12 +67,10 @@ export async function PATCH(
     }
 }
 
-export async function DELETE(
-    req: NextRequest,
-    context: Context
-): Promise<NextResponse> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function DELETE(req: NextRequest, context: any): Promise<NextResponse> {
     try {
-        const { id } = await context.params;
+        const { id } = await (context as { params: { id: string } }).params;
 
         await connectDB();
 
