@@ -14,6 +14,12 @@ interface PatchTaskRequestBody {
     [key: string]: string | boolean | 'low' | 'medium' | 'high' | undefined;
 }
 
+interface Context {
+    params: {
+        id: string;
+    };
+}
+
 export async function PATCH(
     request: NextRequest,
     { params }: { params: { id: string } }
@@ -69,7 +75,7 @@ export async function PATCH(
 
 export async function DELETE(
     req: NextRequest,
-    context: { params: { id: string } }
+    context: Context
 ): Promise<NextResponse> {
     try {
         const { id } = await context.params;
